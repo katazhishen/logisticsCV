@@ -11,4 +11,14 @@ from pyzbar.pyzbar import decode
 
 from PIL import Image
 from pyzbar.pyzbar import decode
-print(decode(Image.open("assets/08_glare.png")))
+
+one = Image.open("assets/03_size_120.png")          # 这是 120x120 的码
+page = Image.new("RGB", (400, 140), (255, 255, 255))
+for x in (10, 140, 270):                            # 横着排三张
+    page.paste(one, (x, 10))
+page.save("assets/_page3.png")
+
+r = decode(page)
+print("找到几个码：", len(r))
+for d in r:
+    print(" ", d.data.decode(), d.rect)
