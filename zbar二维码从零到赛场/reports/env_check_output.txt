@@ -12,7 +12,7 @@
   [OK] qrcode（造二维码） —— qrcode 已装
 
 【三】骨（zbar 本体 + 它的 Python 翻译官）
-  [OK] libzbar 能找到 —— 使用教程自带的 vendor/lib/libzbar.so.0（没 sudo 权限时的兜底）
+  [OK] libzbar 能找到 —— 使用系统安装的 libzbar（find_library('zbar') → 'libzbar.so.0'）
   [OK] pyzbar 能读出一张真实图片 —— pyzbar 可用，试读 01_clean.png 得到：156+123+516+231
 
 【四】眼睛（摄像头，没有也能学，只是第 06 课要改用回放模式）

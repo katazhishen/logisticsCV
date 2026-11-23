@@ -94,7 +94,7 @@ python code/env_check.py          # 8 项全 OK 就可以开始了
 | Pillow | 12.3.0 | 图片读写 |
 | qrcode | 8.x（本教程 `pip install` 补装） | **造**二维码 |
 | pyzbar | 0.1.9（本教程 `pip install` 补装） | zbar 的 Python 包装 |
-| libzbar | 0.23.92-4build2 | zbar 本体（本教程自带 `vendor/` 一份） |
+| libzbar | 0.23.92-4build2 | zbar 本体（**系统已装**；另自带 `vendor/` 一份兜底） |
 
 > **`OpenCV_Linux` 里原本缺 `qrcode` 和 `pyzbar`**，这两个都是纯 Python 包，一条命令补齐：
 > ```bash
@@ -107,10 +107,19 @@ python code/env_check.py          # 8 项全 OK 就可以开始了
 > 后来发现有现成的 `OpenCV_Linux`，那个 `.venv` 已经删掉了 ——
 > **一个项目一个环境就够了，多出来的环境是负担，不是保险。**
 
-**关于 zbar 本体**：正常情况 `sudo apt install libzbar0` 就够了。但这台机器没有 sudo
-权限，所以本教程用 `apt-get download` 把 deb 包下下来，解包到 `vendor/` 目录里，
-再用 `code/zbar_bootstrap.py` 让 pyzbar 找到它。这一段`第 02 课`会详细解释 ——
-**如果你以后在别的机器上有 sudo，直接装系统的就行，bootstrap 会自动走"系统"这条路。**
+**关于 zbar 本体：两条路，`bootstrap` 自动选。**
+
+- **正路**：`sudo apt install -y libzbar0` —— 本机**已经这样装好了**
+  （`/lib/x86_64-linux-gnu/libzbar.so.0`，0.23.92-4build2），所以 `env_check.py`
+  报的是 `使用系统安装的 libzbar`。
+- **兜底路**：本教程自带 `vendor/lib/libzbar.so.0`，由 `code/zbar_bootstrap.py`
+  手动加载 + 猴补丁 `find_library`，**不需要 root**。适用于赛场机、树莓派、借来的电脑。
+
+`zbar_bootstrap.py` 第一句就是"先试正路"（`if find_library("zbar"): return "system"`），
+所以你装了系统库之后一行代码都不用改。原理与完整踩坑记录见`第 02 课` §5。
+
+> 可选：`sudo apt install -y zbar-tools` 会额外装上命令行工具 `zbarimg`
+> （本机目前只装了库，没装工具；`vendor/zbarimg` 照样能用）。
 
 ---
 
@@ -175,12 +184,13 @@ zbar二维码从零到赛场/
 │   ├── zbar_bootstrap.py      ← 让 pyzbar 找到本教程自带的 zbar
 │   ├── make_assets.py         ← 一次生成全部实验素材图
 │   ├── env_check.py           ← 第 02 课：环境体检
+│   ├── probe_two_paths.py     ← 第 02 课：验证"系统库/自带库"两条路都能读
 │   ├── lesson03_read_one.py
 │   ├── ...
 │   └── lesson12_advanced.py
 ├── assets/                    ← 素材 + 生成的实验结果图
 ├── reports/                   ← 每课实跑的完整输出（对答案用）
-└── vendor/                    ← 自带的 libzbar0（没 sudo 时的兜底）
+└── vendor/                    ← 自带的 libzbar0（没 sudo 机器的兜底，本机用不上）
     ├── lib/libzbar.so.0
     └── zbarimg                ← zbar 官方命令行工具，调试时很有用
 ```

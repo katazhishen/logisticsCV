@@ -75,10 +75,13 @@ print("\n【三】骨（zbar 本体 + 它的 Python 翻译官）")
 
 def _bootstrap():
     sys.path.insert(0, os.path.join(ROOT, "code"))
+    import ctypes.util
     import zbar_bootstrap
     mode = zbar_bootstrap.ensure()
     if mode == "system":
-        return "使用系统安装的 libzbar（apt 装成功的那种）"
+        # 顺便把这个名字报出来：它就是 pyzbar 内部 find_library('zbar') 拿到的返回值
+        name = ctypes.util.find_library("zbar")
+        return f"使用系统安装的 libzbar（find_library('zbar') → {name!r}）"
     return "使用教程自带的 vendor/lib/libzbar.so.0（没 sudo 权限时的兜底）"
 
 
