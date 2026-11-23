@@ -10,7 +10,7 @@ lesson07_preprocess.py —— 第 07 课：图像预处理，把读不出的码�
 让你亲眼看到哪种手段救哪种病。
 
 运行（在教程根目录下）：
-    .venv/bin/python code/lesson07_preprocess.py
+    python code/lesson07_preprocess.py
 """
 import os
 import sys

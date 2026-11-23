@@ -3,11 +3,11 @@
 ==============================================================
 
 【一】皮（Python 解释器）
-  [OK] Python 版本 —— 3.10.12（Linux）
+  [OK] Python 版本 —— 3.11.16（Linux）
 
 【二】料（图像处理三件套：算得快、存得住、看得见）
-  [OK] numpy（数组运算） —— numpy 2.2.6
-  [OK] Pillow（图像读写） —— Pillow 9.0.1
+  [OK] numpy（数组运算） —— numpy 2.4.6
+  [OK] Pillow（图像读写） —— Pillow 12.3.0
   [OK] OpenCV（图像处理/摄像头） —— OpenCV 5.0.0
   [OK] qrcode（造二维码） —— qrcode 已装
 

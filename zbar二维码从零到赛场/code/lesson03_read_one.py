@@ -5,10 +5,10 @@ lesson03_read_one.py —— 第 03 课：第一次读出二维码
 这一课只做一件事：让一张图片里的二维码，变成屏幕上的一行字。
 
 运行（在教程根目录下）：
-    .venv/bin/python code/lesson03_read_one.py
+    python code/lesson03_read_one.py
 
 如果你还没生成素材图，先跑：
-    .venv/bin/python code/make_assets.py
+    python code/make_assets.py
 """
 import os
 import sys

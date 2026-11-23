@@ -6,7 +6,7 @@ env_check.py —— 第 02 课：环境自检
 每一项都会打印 [OK] 或 [X]，最后给一句结论。
 
 运行（在教程根目录下）：
-    .venv/bin/python code/env_check.py
+    python code/env_check.py
 """
 import os
 import sys

@@ -12,8 +12,8 @@ lesson12_advanced.py —— 第 12 课：五个"进阶小尝试"
 每个都可以单独跑，改参数、看结果、自己加实验。
 
 用法：
-    .venv/bin/python code/lesson12_advanced.py            # 五个全跑
-    .venv/bin/python code/lesson12_advanced.py --only C   # 只跑 C
+    python code/lesson12_advanced.py            # 五个全跑
+    python code/lesson12_advanced.py --only C   # 只跑 C
 """
 import os
 import sys

@@ -37,9 +37,11 @@ A4 板歪着贴在场地边缘、80mm 的码在画面里只有几十像素、头
 **现在就想跑？** 三条命令，三十秒见效（在教程根目录下执行）：
 
 ```bash
-.venv/bin/python code/env_check.py              # 环境体检，8 项应全 OK
-.venv/bin/python code/lesson03_read_one.py      # 批量读全部素材图，最后会给出结论
-.venv/bin/python code/lesson10_reader.py --self-test   # 11 级流水线自动挑药
+conda activate OpenCV_Linux                     # 用你已有的 OpenCV 环境（见第三节）
+cd "/home/kata/Desktop/logisticsCV/zbar二维码从零到赛场"
+python code/env_check.py                        # 环境体检，8 项应全 OK
+python code/lesson03_read_one.py                # 批量读全部素材图，最后给出结论
+python code/lesson10_reader.py --self-test      # 11 级流水线自动挑药
 ```
 
 这三条能过，说明环境和代码都是好的，可以直接从第 03 课往下学。
@@ -75,16 +77,35 @@ A4 板歪着贴在场地边缘、80mm 的码在画面里只有几十像素、头
 
 ## 三、环境（这份教程实测过的版本）
 
+**用你机器上已有的 conda 环境 `OpenCV_Linux`，不要新建环境。**
+
+```bash
+conda activate OpenCV_Linux
+python code/env_check.py          # 8 项全 OK 就可以开始了
+```
+
 | 组件 | 版本 | 作用 |
 |------|------|------|
 | Ubuntu | 22.04.5 | 操作系统 |
-| Python | 3.10.12 | 语言 |
-| opencv-python | 5.0.0.93（`cv2 5.0.0`） | 图像处理、摄像头 |
-| numpy | 2.2.6 | 数组运算 |
-| Pillow | 9.0.1 | 图片读写 |
-| qrcode | 8.2 | **造**二维码 |
-| pyzbar | 0.1.9 | zbar 的 Python 包装 |
-| libzbar | 0.23.92-4build2 | zbar 本体（本教程自带一份） |
+| conda 环境 | `OpenCV_Linux`（`/home/kata/yes/envs/OpenCV_Linux`） | 本教程运行环境 |
+| Python | 3.11.16 | 语言 |
+| opencv-python | 5.0.0 | 图像处理、摄像头 |
+| numpy | 2.4.6 | 数组运算 |
+| Pillow | 12.3.0 | 图片读写 |
+| qrcode | 8.x（本教程 `pip install` 补装） | **造**二维码 |
+| pyzbar | 0.1.9（本教程 `pip install` 补装） | zbar 的 Python 包装 |
+| libzbar | 0.23.92-4build2 | zbar 本体（本教程自带 `vendor/` 一份） |
+
+> **`OpenCV_Linux` 里原本缺 `qrcode` 和 `pyzbar`**，这两个都是纯 Python 包，一条命令补齐：
+> ```bash
+> pip install qrcode pyzbar
+> ```
+> 不想每次 `conda activate`，就用绝对路径：
+> `/home/kata/yes/envs/OpenCV_Linux/bin/python code/env_check.py`
+
+> **（诚实交代）**教程最初在系统 Python 3.10 上写，为了不污染系统，我在教程目录建过一个 `.venv`。
+> 后来发现有现成的 `OpenCV_Linux`，那个 `.venv` 已经删掉了 ——
+> **一个项目一个环境就够了，多出来的环境是负担，不是保险。**
 
 **关于 zbar 本体**：正常情况 `sudo apt install libzbar0` 就够了。但这台机器没有 sudo
 权限，所以本教程用 `apt-get download` 把 deb 包下下来，解包到 `vendor/` 目录里，

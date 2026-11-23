@@ -11,7 +11,7 @@ lesson09_stress.py —— 第 09 课：压力测试，摸清 zbar 的脾气
 这一课用随机生成的"摄像头画面"做统计实验，把这个问题量化。
 
 运行（在教程根目录下）：
-    .venv/bin/python code/lesson09_stress.py
+    python code/lesson09_stress.py
 """
 import os
 import sys

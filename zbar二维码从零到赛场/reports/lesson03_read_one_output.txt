@@ -43,8 +43,8 @@ decode() 返回的是： <class 'list'>
 15_barcode_ean13.png      4006381333931
 20_before_after.png       156+123+516+231
 21_display_panel.png      （读不出来）
+30_print_board_a4.png     156+123+516+231
 _blank_no_qr.png          （读不出来）
-_probe.png                156+123+516+231
 --------------------------------------------------------------
 共 33 张，成功 27 张，失败 6 张。
 

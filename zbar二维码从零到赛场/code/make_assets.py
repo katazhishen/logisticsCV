@@ -3,7 +3,7 @@
 make_assets.py —— 一键生成本套教程要用到的全部实验图片
 
 运行方式（在教程根目录下）：
-    .venv/bin/python code/make_assets.py
+    python code/make_assets.py
 
 生成的东西全部放在 assets/ 目录里。
 每一张图都对应正文里某一个"动手做"环节，文件名就是索引。

@@ -10,7 +10,7 @@ lesson08_parse_task.py —— 第 08 课：把字符串变成"机器人能执行
 这一步在算法组里叫「解析（parse）」和「校验（validate）」。
 
 运行（在教程根目录下）：
-    .venv/bin/python code/lesson08_parse_task.py
+    python code/lesson08_parse_task.py
 """
 import os
 import re

@@ -8,7 +8,7 @@ lesson04_make_qr.py —— 第 04 课：自己造二维码
   会造码 = 你拥有无限的测试数据。
 
 运行（在教程根目录下）：
-    .venv/bin/python code/lesson04_make_qr.py
+    python code/lesson04_make_qr.py
 """
 import os
 import sys

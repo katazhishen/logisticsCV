@@ -9,10 +9,10 @@ lesson10_reader.py —— 第 10 课：把它做成一个能上车的"读码器"
     · 一个命令行入口：读单图 / 读回放 / 读摄像头，一种代码全都能跑
 
 用法（在教程根目录下）：
-    .venv/bin/python code/lesson10_reader.py --image assets/08_glare.png
-    .venv/bin/python code/lesson10_reader.py --replay
-    .venv/bin/python code/lesson10_reader.py --camera 0 --frames 100
-    .venv/bin/python code/lesson10_reader.py --self-test
+    python code/lesson10_reader.py --image assets/08_glare.png
+    python code/lesson10_reader.py --replay
+    python code/lesson10_reader.py --camera 0 --frames 100
+    python code/lesson10_reader.py --self-test
 
 在你自己的机器人工程里，直接 `from lesson10_reader import RobustReader`，
 把 read(frame) 挂到主循环里就行。

@@ -5,10 +5,10 @@ lesson06_camera.py —— 第 06 课：让摄像头一直看，一直读
 这一课把"读一张图"变成"读连续视频流"，这是机器人真实的工作方式。
 
 运行方式（在教程根目录下）：
-    .venv/bin/python code/lesson06_camera.py --replay        # 用教程自带的假摄像头（回放 60 帧）
-    .venv/bin/python code/lesson06_camera.py                 # 用真摄像头 /dev/video0
-    .venv/bin/python code/lesson06_camera.py --show          # 真摄像头 + 弹窗显示（需要桌面环境）
-    .venv/bin/python code/lesson06_camera.py --bench         # 只测速，不找码
+    python code/lesson06_camera.py --replay        # 用教程自带的假摄像头（回放 60 帧）
+    python code/lesson06_camera.py                 # 用真摄像头 /dev/video0
+    python code/lesson06_camera.py --show          # 真摄像头 + 弹窗显示（需要桌面环境）
+    python code/lesson06_camera.py --bench         # 只测速，不找码
 
 参数：
     --replay      不用摄像头，逐帧播放 assets/replay/ 里的图片

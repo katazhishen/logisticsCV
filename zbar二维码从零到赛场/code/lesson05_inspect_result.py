@@ -7,7 +7,7 @@ lesson05_inspect_result.py —— 第 05 课：读懂 decode() 的返回值
 这些信息才是让机器人"边看边算"的关键。
 
 运行（在教程根目录下）：
-    .venv/bin/python code/lesson05_inspect_result.py
+    python code/lesson05_inspect_result.py
 """
 import os
 import sys
